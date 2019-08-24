@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import VisionClient from '../Utils/VisionClient'
 
 export default class Consulta extends Component {
+
+ componentDidMount() {
+   VisionClient.quickStart()
+ }
+
   render() {
     return (
       <div class="container">
