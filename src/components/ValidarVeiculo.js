@@ -22,11 +22,11 @@ export default class SolicitarVaga extends Component {
       imagem: imageSrc
     })
       .then(function (response) {
-        console.log(response.body);
-        const board = response.body.data;
+        console.log(response.data);
+        const board = response.data;
         const hostCheckin = "http://192.168.37.13";
         const portCheckin = 3001;
-        const routeCheckin = '/checkin';
+        const routeCheckin = 'checkin';
         const checkin = `${hostCheckin}:${portCheckin}/${routeCheckin}/${board}`;
         Axios.get(checkin)
             .then(function (response) {
