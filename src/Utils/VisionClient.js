@@ -1,5 +1,5 @@
 
-module.exports = async function quickStart() {
+export async function quickStart() {
   // Imports the Google Cloud client library
   const vision = require('@google-cloud/vision');
 
@@ -12,5 +12,3 @@ module.exports = async function quickStart() {
   console.log('Labels:');
   labels.forEach(label => console.log(label.description));
 }
-
-export default VisionClient;
