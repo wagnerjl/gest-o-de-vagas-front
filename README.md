@@ -1,2 +1,2 @@
 # gest-o-de-vagas-front
-Hackathor equipe loki
+Hackathor equipe loki.
