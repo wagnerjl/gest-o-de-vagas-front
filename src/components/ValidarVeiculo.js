@@ -10,7 +10,7 @@ export default class SolicitarVaga extends Component {
     this.webcam = webcam
   }
 
-  capture = () => {
+  checkin = () => {
     const imageSrc = this.webcam.getScreenshot()
     console.log(imageSrc)
     const host = "http://192.168.37.13"
@@ -21,12 +21,25 @@ export default class SolicitarVaga extends Component {
     Axios.post(getBoard, {
       imagem: imageSrc
     })
-    .then(function (response) {
-      console.log(response.body)
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
+      .then(function (response) {
+        console.log(response.body);
+        const board = response.body.data;
+        const hostCheckin = "http://192.168.37.13";
+        const port = 3001;
+        const route = '/checkin';
+        const checkin = `${host}:${port}/${route}/${board}`;
+        Axios.get(checkin)
+            .then(function (response) {
+              alert("Sucesso");
+            })
+            .catch(function (error) {
+              alert("Placa nao autorizada");
+            })
+
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   };
 
   render() {
@@ -52,7 +65,7 @@ export default class SolicitarVaga extends Component {
               width={350}
               videoConstraints={videoConstraints}
             />
-            <button onClick={this.capture} className="btn btn-primary">Capture photo</button>
+            <button onClick={this.checkin} className="btn btn-primary">Capture photo</button>
           </div>
         </div>
       </div>
