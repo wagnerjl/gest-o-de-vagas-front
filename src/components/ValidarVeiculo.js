@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Webcam from "react-webcam"
 import Axios from 'axios'
 
+import '../styles/cam.scss'
+
 export default class SolicitarVaga extends Component {
 
   setRef = webcam => {
@@ -16,8 +18,6 @@ export default class SolicitarVaga extends Component {
     const route = 'recuperarPlaca'
     const getBoard = `${host}:${port}/${route}`
 
-    console.log("********************************", getBoard)
-
     Axios.post(getBoard, {
       imagem: imageSrc
     })
@@ -25,7 +25,7 @@ export default class SolicitarVaga extends Component {
       console.log(response.body)
     })
     .catch(function (error) {
-      console.log(error);
+      console.log(error)
     })
   };
 
@@ -37,16 +37,24 @@ export default class SolicitarVaga extends Component {
     };
 
     return (
-      <div>
-        <Webcam
-          audio={false}
-          height={350}
-          ref={this.setRef}
-          screenshotFormat="image/jpeg"
-          width={350}
-          videoConstraints={videoConstraints}
-        />
-        <button onClick={this.capture}>Capture photo</button>
+      <div className="container">
+        <div className="row">
+          <div className="box-cam col-sm-6 col-xs-12 align-items-center bg-light">
+            <h3>
+              Checkin veículo
+              <small class="text-muted">Valide já seu veículo</small>
+            </h3>
+            <Webcam
+              audio={false}
+              height={350}
+              ref={this.setRef}
+              screenshotFormat="image/jpeg"
+              width={350}
+              videoConstraints={videoConstraints}
+            />
+            <button onClick={this.capture} className="btn btn-primary">Capture photo</button>
+          </div>
+        </div>
       </div>
     )
   }

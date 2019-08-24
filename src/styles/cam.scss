@@ -1,0 +1,21 @@
+@import './_vars.scss';
+
+.box-cam {
+  border-radius: 5px;
+  margin: 20px auto;
+  border: 1px solid $secondary-color;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+
+  .text-muted {
+    display: block;
+  }
+
+  video {
+    border: 10px solid $secondary-color;
+    background-color: black;
+    height: 206px;
+    margin: 30px;
+  }
+}

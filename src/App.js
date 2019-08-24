@@ -11,15 +11,17 @@ import PageNotFound from './components/PageNotFound'
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route path="/" exact={true} component={Login} />
-        <Route path="/perfil-user" component={PerfilUser} />
-        <Route path="/solicitar-vaga" component={SolicitarVaga} />
-        <Route path="/validar-entrada" component={ValidarVeiculo} />
-        <Route path="*" component={PageNotFound} />
-      </Switch>
-    </ BrowserRouter>
+      <div className="container">
+        <Header />
+        <Switch>
+          <Route path="/" exact={true} component={Login} />
+          <Route path="/perfil-user" component={PerfilUser} />
+          <Route path="/solicitar-vaga" component={SolicitarVaga} />
+          <Route path="/validar-entrada" component={ValidarVeiculo} />
+          <Route path="*" component={PageNotFound} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
